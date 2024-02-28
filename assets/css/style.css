@@ -3,6 +3,7 @@ body {
     font-family: sans-serif;
 }
 
+
 h1 {
     text-align: center;
 
@@ -21,8 +22,28 @@ h1 {
     text-align: center;
   }
 
-  .container {
+  #start-btn:hover {
+    background-color: pink;
+    opacity: 0.5;
+    transition: 0.5s;
+    border-color: black;
+  }
+
+.container {
     text-align: center;
     padding-top: 10%;
   }
 
+#countdown {
+  text-align: right;
+}
+
+.options {
+  padding: 20px;
+  align-items: center;
+  display: none;
+}
+
+#initials {
+  display: none;
+}
