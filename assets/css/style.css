@@ -47,3 +47,9 @@ h1 {
 #initials {
   display: none;
 }
+
+button {
+  min-width: 100px;
+  max-width: 500px;
+  margin: 10px;
+}

@@ -11,8 +11,8 @@
 // WHEN the game is over
 // THEN I can save my initials and score
 
-//created variable for start button
-var startBtn = document.getElementById('#start-btn');
+//created variable for start button, star page, and options
+var startBtn = document.getElementById('start-btn');
 var startPage = document.querySelector('#start-page');
 var optionsEl = document.querySelectorAll('.options');
 //start quiz function
@@ -27,8 +27,9 @@ function startQuiz (){
 }
 
 //event listener for the start button to run start quiz function
-startBtn = addEventListener('click', startQuiz);
+startBtn.addEventListener('click', startQuiz);
 var timer = document.getElementById('countdown');
+
 //when start button is clicked the timer begins
 function startTimer(){
     var timeLeft = 60;
@@ -48,70 +49,73 @@ function startTimer(){
 
 //array for quiz questions, options and the correct answer.
 var questions = [
-{
-    question: 'What is a boolean?',
-    options: ['a data type with two possible values: true or false.','a sequence of characters that represents text','an entity that has state and behavior','a variable in JavaScript that is without any value'],
-    answer: 'a data type with two possible values: true or false.',
-},
+// {
+//     question: 'hdfgjsioak',
+//     options: ['','','', ''],
+//     answer: '',
+// },
 {
     question: 'What is the HTML tag for linking a javaScript file?',
-    options: ['<link>','<script>','<meta>','<div>'],
-    answer: '<script>',
+    options: ['&lt;link&gt;','&lt;script&gt;','&lt;meta&gt;','&lt;div&gt;'],
+    answer: '&lt;script&gt;',
 },
-{
-    question: '',
-    options: ['','','',''],
-    answer: '',
-},
-{
-    question: '',
-    options: ['','','',''],
-    answer: '',
-},
-{
-    question: '',
-    options: ['','','',''],
-    answer: '',
-},
-{
-    question: '',
-    options: ['','','',''],
-    answer: '',
-},
-{
-    question: '',
-    options: ['','','',''],
-    answer: '',
-},
-{
-    question: '',
-    options: ['','','',''],
-    answer: '',
-},
-{
-    question: '',
-    options: ['','','',''],
-    answer: '',
-},
-{
-    question: '',
-    options: ['','','',''],
-    answer: '',
-},
+// {
+//     question: '',
+//     options: ['','','',''],
+//     answer: '',
+// },
+// {
+//     question: '',
+//     options: ['','','',''],
+//     answer: '',
+// },
+// {
+//     question: '',
+//     options: ['','','',''],
+//     answer: '',
+// },
+// {
+//     question: '',
+//     options: ['','','',''],
+//     answer: '',
+// },
+// {
+//     question: '',
+//     options: ['','','',''],
+//     answer: '',
+// },
+// {
+//     question: '',
+//     options: ['','','',''],
+//     answer: '',
+// },
+// {
+//     question: '',
+//     options: ['','','',''],
+//     answer: '',
+// },
+// {
+//     question: '',
+//     options: ['','','',''],
+//     answer: '',
+// },
 ];
-console.log(questions.length);
+//wanted to see how the array was working --> console.log(questions.length);
 
+// Get the elements by ID
+var quizQuestions = document.getElementById('quiz-questions');
+var results = document.getElementById('quiz-results');
+var highscores = document.getElementById('highscores');
+var userInitials = document.getElementById('initials');
 
-var quizQuestions = document.getElementById('#quiz-questions');
-var results = document.getElementById('#quiz-results');
-var highscores = document.getElementById('#highscores');
-var userInitials = document.getElementById('#initials');
-
-//function to display questions
+// Function to display questions
 function displayQuestions() {
-    for (var i = 0; i < questions.length; i++){
-        questions = Math.floor(Math.random())
-    }
-
+    var randomIndex = Math.floor(Math.random() * questions.length);
+    var randomQuestion = questions[randomIndex];
+    
+    quizQuestions.innerHTML = `
+        <h3>${randomQuestion.question}</h3>
+            ${randomQuestion.options.map(option => `<button>${option}</button>`).join('<br>')}
+            <hr />
+    `;
 }
-
