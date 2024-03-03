@@ -41,15 +41,31 @@ h1 {
 .options {
   padding: 20px;
   align-items: center;
+  
+}
+
+#quiz-results {
   display: none;
 }
 
-#initials {
+#highscores {
   display: none;
+  text-align: center;
+  list-style-position: inside;
 }
+
 
 button {
   min-width: 100px;
   max-width: 500px;
   margin: 10px;
+  background-color: pink;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: pink;
+  opacity: 0.5;
+  transition: 0.5s;
+  border-color: black;
 }
