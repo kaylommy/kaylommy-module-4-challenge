@@ -1,23 +1,8 @@
-//Acceptance Criteria
-// GIVEN I am taking a code quiz
-// WHEN I click the start button
-// THEN a timer starts and I am presented with a question
-// WHEN I answer a question
-// THEN I am presented with another question
-// WHEN I answer a question incorrectly
-// THEN time is subtracted from the clock
-// WHEN all questions are answered or the timer reaches 0
-// THEN the game is over
-// WHEN the game is over
-// THEN I can save my initials and score
-
-//created variable for start button, star page, and options
+ //created variable for needed Ids, classes, etc.
 var startBtn = document.getElementById('start-btn');
 var startPage = document.querySelector('#start-page');
-// var optionsEl = document.querySelectorAll('.options');
 var restartBtn = document.getElementById('restart-btn')
 var score = document.getElementById('score');
-// Get the elements by ID
 var quizQuestions = document.getElementById('quiz-questions');
 var results = document.getElementById('quiz-results');
 var highscores = document.getElementById('highscores');
@@ -34,9 +19,6 @@ var message = document.getElementById('message');
 //start quiz function
 function startQuiz (){
     startPage.style.display = 'none';
-    // optionsEl.forEach(function(options) {
-    //     options.style.display = 'block';
-    // });
     quizQuestions.style.display = 'block';
     console.log('starting quiz!')
     startTimer();
@@ -47,8 +29,8 @@ function startQuiz (){
 startBtn.addEventListener('click', startQuiz);
 var timer = document.getElementById('countdown');
 timer.textContent = 'Time remaining:';
-//when start button is clicked the timer begins
-//how to stop timer if questions are finished
+
+//function for timer to begin (delayed)
 function startTimer(){
     timeLeft = 60;
     timeInterval = setInterval(function(){
@@ -94,8 +76,6 @@ var questions = [
 },
 ];
 
-//wanted to see how the array was working --> console.log(questions.length);
-
 // Function to display questions
 function displayQuestions() {
     message.textContent = '';
@@ -133,7 +113,7 @@ function displayQuestions() {
         });
     });
 }
-//figure out how to display and track score.
+
 //store initials and results, display as highscore
 function displayResults(){
     score.textContent = 'Congratulations! Your score is: ' + timeLeft
@@ -152,8 +132,7 @@ function displayHighscores(){
         scoreList.appendChild(li)
     }
 };
-
-//show user if user is right or wrong
+//event listeners for end page buttons
 saveBtn.addEventListener('click', function(){
     var initials = userInitials.value
     userScores.push({
