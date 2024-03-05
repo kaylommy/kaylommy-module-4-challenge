@@ -9,7 +9,7 @@ var highscores = document.getElementById('highscores');
 var userInitials = document.getElementById('initials');
 var container=document.querySelector('.container')
 var timeInterval = 0;
-var timeLeft = 0;
+var timeLeft = 60;
 var saveBtn = document.getElementById('saveBtn');
 var userScores = JSON.parse(localStorage.getItem('userScores')) || [];
 var scoreList = document.getElementById('scoreList');
@@ -28,13 +28,12 @@ function startQuiz (){
 //event listener for the start button to run start quiz function
 startBtn.addEventListener('click', startQuiz);
 var timer = document.getElementById('countdown');
-timer.textContent = 'Time remaining:';
+timer.textContent = 'Time remaining: 60 seconds';
 
-//function for timer to begin (delayed)
+//timer function
 function startTimer(){
-    timeLeft = 60;
     timeInterval = setInterval(function(){
-        timeLeft--;
+    timeLeft--;
     if (timeLeft > 1) {
         timer.textContent = 'Time remaining: ' + timeLeft + ' seconds'
     }else if (timeLeft === 1){
@@ -50,9 +49,9 @@ function startTimer(){
 //array for quiz questions, options and the correct answer.
 var questions = [
 {
-    question: 'hdfgjsioak',
-    options: ['a','b','c', 'd'],
-    answer: 'a',
+    question: 'What does CSS stand for?',
+    options: ['Cascading Styling Sheet','Coding Style Sheet','Cascading Style Sheet', 'Cascading Style Sorting'],
+    answer: 'Cascading Style Sheet',
 },
 {
     question: 'What is the HTML tag for linking a javaScript file?',
@@ -60,19 +59,19 @@ var questions = [
     answer: '<script>',
 },
 {
-    question: 'dfh',
-    options: ['a','b','c','d'],
-    answer: 'a',
+    question: 'Which HTML tag defines a hyperlink?',
+    options: ['&lt;a&gt;','&lt;i&gt;','&lt;link&gt;','&lt;ul&gt;'],
+    answer: '<a>',
 },
 {
-    question: 'hfgd',
-    options: ['a','b','c','d'],
-    answer: 'a',
+    question: 'What is the CSS universal selector?',
+    options: ['!','/*','/','*'],
+    answer: '*',
 },
 {
-    question: 'fdgh',
-    options: ['a','b','c','d'],
-    answer: 'a',
+    question: 'What do we use to look for an ID?',
+    options: ['#','%','.','@'],
+    answer: '#',
 },
 ];
 
@@ -80,7 +79,6 @@ var questions = [
 function displayQuestions() {
     message.textContent = '';
     if (questions.length === 0) {
-        console.log('Quiz completed!'); // Display a message indicating the end of the quiz
         displayResults(); // Stop the function execution
     }
     var randomIndex = Math.floor(Math.random() * questions.length);

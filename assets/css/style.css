@@ -54,10 +54,12 @@ h1 {
   list-style-position: inside;
 }
 
-
+ol {
+  padding: 0px;
+}
 button {
-  min-width: 100px;
-  max-width: 500px;
+  min-width: 175px;
+  max-width: 700px;
   margin: 10px;
   background-color: pink;
   border-radius: 5px;
